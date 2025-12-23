@@ -9,11 +9,9 @@ function App() {
 
   return (
     <>
-      <Header />
-      <div className="search-container left-panel" >
-        <input type="text" placeholder='🔍 Search or Start a new chat' />
+      <div className="left-panel">
+        <Header />
       </div>
-      <Tab />
     </>
   )
 }

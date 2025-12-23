@@ -1,7 +1,19 @@
-
-.header-section{
+.left-header{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 20px 8px;
+    align-items: center;
+    padding: 16px;
+}
+
+.left-header-title{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.left-header-icons span{
+    font-size: 18px;
+    font-weight: 800;
+    margin-left: 12px;
+    gap: 5px;
+    cursor: pointer;
 }

@@ -4,10 +4,17 @@ import './tab.css'
 function Tab() {
   return (
     <>
-      <div className="filter-tabs left-panel">
-        <span className="tab active">All</span>
-        <span className="tab">Unread</span>
-        <span className="tab">Groups</span>
+      <div className="tab-area">
+        <select className="chat-filter">
+          <option>All Chats</option>
+          <option>Unread</option>
+          <option>Groups</option>
+        </select>
+
+        <div className="search-tab">
+          <input type="text" placeholder='Search Chats'/>
+          <span>🔍</span>
+        </div>
       </div>
     </>
   )
