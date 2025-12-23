@@ -1,0 +1,20 @@
+.filter-tabs{
+    display: flex;
+    gap: 15px;
+    padding: 8px 24px;
+}
+
+.tab{
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 16px;
+    background-color: #e9edef;
+    color: #54655f;
+    cursor: pointer;
+}
+
+.tab.active{
+    background-color: #d1f4cc;
+    color: #0b836d;
+    font-weight: 600;
+}
