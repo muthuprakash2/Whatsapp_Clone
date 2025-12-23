@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <div className="search-container left-panel" >
-        <input type="text" placeholder='Search or Start a new chat' />
+        <input type="text" placeholder='🔍 Search or Start a new chat' />
       </div>
       <Tab />
     </>
