@@ -10,10 +10,14 @@
     font-weight: 600;
 }
 
+.left-header-icons{
+    display: flex;
+    gap: 5px;
+}
+
 .left-header-icons span{
     font-size: 18px;
     font-weight: 800;
     margin-left: 12px;
-    gap: 5px;
     cursor: pointer;
 }

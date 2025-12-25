@@ -3,7 +3,6 @@ import './header.css'
 
 export default function Header() {
   return (
-    <>
       <div className="left-header">
         <h2 className='left-header-title'>Chats</h2>
 
@@ -12,6 +11,5 @@ export default function Header() {
           <span>⁝</span>
         </div>
       </div>
-    </>
   )
 }

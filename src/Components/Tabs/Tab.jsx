@@ -3,7 +3,6 @@ import './tab.css'
 
 function Tab() {
   return (
-    <>
       <div className="tab-area">
         <select className="chat-filter">
           <option>All Chats</option>
@@ -16,7 +15,6 @@ function Tab() {
           <span>🔍</span>
         </div>
       </div>
-    </>
   )
 }
 

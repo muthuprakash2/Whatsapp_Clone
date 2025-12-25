@@ -1,20 +1,31 @@
-.filter-tabs{
+.tab-area{
     display: flex;
-    gap: 15px;
-    padding: 8px 24px;
+    gap: 10px;
+    padding: 0 16px 16px;
 }
 
-.tab{
-    padding: 6px 14px;
-    font-size: 14px;
-    border-radius: 16px;
-    background-color: #e9edef;
-    color: #54655f;
-    cursor: pointer;
+.chat-filter{
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
 }
 
-.tab.active{
-    background-color: #d1f4cc;
-    color: #0b836d;
-    font-weight: 600;
+.search-tab{
+    flex: 1;
+    position: relative;
+}
+
+.search-tab input{
+    width: 100%;
+    padding: 8px 32px 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.search-tab span{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-55%);
+    opacity: 0.6;
 }

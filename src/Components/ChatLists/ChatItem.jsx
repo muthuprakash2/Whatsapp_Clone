@@ -1,0 +1,31 @@
+import React from 'react'
+import './chatlist.css'
+
+function ChatItem({ name, message, time, unread, active, onClick, isGroup}) {
+
+  return (
+      <div className={`chat-list-section ${active ? "active" : ""}`}
+      onClick={onClick}>
+        <div className="chat-avatar-container">
+          <div className={`chat-avatar ${isGroup ? "group-avatar" : ''}`}>
+            {isGroup ? '👥' : name.charAt(0).toUpperCase()}
+          </div>
+        </div>
+
+        <div className="chat-content">
+            <div className="chat-top">
+                <span className="chat-name">{name}</span>
+                <span className="chat-seen">{time}</span>
+            </div>
+
+            <div className="chat-bottom">
+                <span className="chat-msg">{message}</span>
+                {unread > 0 && (
+                <span className="chat-unread">{unread}</span>)}
+            </div>
+        </div>
+      </div>
+  )
+}
+
+export default ChatItem
