@@ -1,7 +1,7 @@
 import React from 'react'
 import './chatlist.css'
 
-function ChatItem({ name, message, time, unread, active, onClick, isGroup }) {
+function ChatItem({ name, lastMessage, time, unread, active, onClick, isGroup }) {
   return (
       <div
         className={`chat-list-section ${active ? "active" : ""}`}
@@ -20,7 +20,7 @@ function ChatItem({ name, message, time, unread, active, onClick, isGroup }) {
             </div>
 
             <div className="chat-bottom">
-                <span className="chat-msg">{message}</span>
+                <span className="chat-msg">{lastMessage}</span>
                 {unread > 0 && (
                   <span className="chat-unread">{unread}</span>
                 )}
