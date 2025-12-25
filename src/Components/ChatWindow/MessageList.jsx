@@ -1,13 +1,22 @@
 import React from 'react'
-import MsgBubbble from './MsgBubbble'
+import MsgBubble from './MsgBubble'
 
-function MessageList() {
+function MessageList({ messages = [], activeChat }) {
   return (
     <div className='msg-list'>
-      <MsgBubbble text="No, I have not thought about that..." />
-      <MsgBubbble text="Pictures will keep your audience form being bored..." />
-      <MsgBubbble text="You are absolutley right..." />
-      <MsgBubbble text="I know you. You can do it. Good luck, Jennifer!" />
+      <div className="date-divider">
+        <span>Today</span>
+      </div>
+
+      {messages.map((msg, index) =>(
+        <MsgBubble
+          key={index}
+          text={msg.text}
+          type={msg.type}
+          time={msg.time || '9:21am'}
+          avatar={msg.type === 'received' ? activeChat?.avatar : null}
+        />
+      ))}
     </div>
   )
 }

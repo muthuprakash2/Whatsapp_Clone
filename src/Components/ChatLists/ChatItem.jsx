@@ -1,11 +1,12 @@
 import React from 'react'
 import './chatlist.css'
 
-function ChatItem({ name, message, time, unread, active, onClick, isGroup}) {
-
+function ChatItem({ name, message, time, unread, active, onClick, isGroup }) {
   return (
-      <div className={`chat-list-section ${active ? "active" : ""}`}
-      onClick={onClick}>
+      <div
+        className={`chat-list-section ${active ? "active" : ""}`}
+        onClick={onClick}
+      >
         <div className="chat-avatar-container">
           <div className={`chat-avatar ${isGroup ? "group-avatar" : ''}`}>
             {isGroup ? '👥' : name.charAt(0).toUpperCase()}
@@ -21,7 +22,8 @@ function ChatItem({ name, message, time, unread, active, onClick, isGroup}) {
             <div className="chat-bottom">
                 <span className="chat-msg">{message}</span>
                 {unread > 0 && (
-                <span className="chat-unread">{unread}</span>)}
+                  <span className="chat-unread">{unread}</span>
+                )}
             </div>
         </div>
       </div>

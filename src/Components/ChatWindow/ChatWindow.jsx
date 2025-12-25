@@ -4,11 +4,14 @@ import MessageList from './MessageList'
 import MsgInput from './MsgInput'
 import "./chatWindow.css"
 
-function ChatWindow() {
+function ChatWindow({ activeChat }) {
   return (
     <div className='chat-window'>
-      <ChatHeader />
-      <MessageList />
+      <ChatHeader activeChat={activeChat} />
+      <MessageList
+        messages={activeChat?.messages || []}
+        activeChat={activeChat}
+      />
       <MsgInput />
     </div>
   )

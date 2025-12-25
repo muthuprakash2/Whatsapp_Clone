@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ChatItem from './ChatItem'
-import chatData from '../../chatData'
+import './chatlist.css'
 
-function ChatList() {
-  const [activeId,setActiveId] = useState(1)
-
+function ChatList({ chats, activeChat, onSelectChat}) {
   return (
       <div className="chat-list">
-        {chatData.map(chat => (
+        {chats.map(chat => (
           <ChatItem
-          key={chat.id}
-          name={chat.name}
-          message={chat.message}
-          time={chat.time}
-          unread={chat.unread}
-          isGroup={chat.isGroup}
-          active={chat.id === activeId}
-          onClick={() =>
-            setActiveId(chat.id)} />
-          
+            key={chat.id}
+            {...chat}
+            active={activeChat?.id === chat.id}
+            onClick={() => onSelectChat(chat)}
+          />
         ))}
       </div>
   )
