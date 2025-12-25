@@ -115,20 +115,3 @@
     background-color: #fff;
     color: #6c63ff;
 }
-
-.chat-list::-webkit-scrollbar{
-    width: 6px;
-}
-
-.chat-list::-webkit-scrollbar-track{
-    background: transparent;
-}
-
-.chat-list::-webkit-scrollbar-thumb{
-    background: #d1d5db;
-    border-radius: 3px;
-}
-
-.chat-list::-webkit-scrollbar-thumb:hover{
-    background: #9ca3af;
-}
