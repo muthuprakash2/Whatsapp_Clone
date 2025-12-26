@@ -1,4 +1,4 @@
-import './ProfilePanel.css';
+import "./ProfilePanel.css";
 
 function ProfilePanel({ data, onLogout }) {
   return (

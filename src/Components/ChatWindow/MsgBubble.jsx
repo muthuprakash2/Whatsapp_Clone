@@ -6,7 +6,7 @@ function MsgBubble({ text, type, time, avatar }) {
       {type === "received" && avatar && (
         <div className="msg-avatar">
           <img src={avatar} alt="avatar" />
-        </div>
+        </div> 
       )}
 
       <div className="msg-content">

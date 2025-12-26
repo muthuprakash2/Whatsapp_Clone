@@ -9,7 +9,7 @@ function MsgInput() {
     <button className="mic-btn">🎤</button>
   </div>
 
-  <input type="text" placeholder='Type your message here...' />
+  <input type="text" placeholder='Type your message here...'  />
   <button className='send-btn'>▶</button>
 </div>
 

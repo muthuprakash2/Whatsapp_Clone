@@ -1,12 +1,12 @@
-import React from 'react'
-import ChatHeader from './ChatHeader'
-import MessageList from './MessageList'
-import MsgInput from './MsgInput'
-import "./chatWindow.css"
+import React from "react";
+import ChatHeader from "./ChatHeader";
+import MessageList from "./MessageList";
+import MsgInput from "./MsgInput";
+import "./chatWindow.css";
 
 function ChatWindow({ activeChat }) {
   return (
-    <div className='chat-window'>
+    <div className="chat-window">
       <ChatHeader activeChat={activeChat} />
       <MessageList
         messages={activeChat?.messages || []}
@@ -14,7 +14,7 @@ function ChatWindow({ activeChat }) {
       />
       <MsgInput />
     </div>
-  )
+  );
 }
 
-export default ChatWindow
+export default ChatWindow;

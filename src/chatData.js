@@ -22,7 +22,8 @@ const chatData = [
     avatar: null,
     messages: [
       { text: 'Hello Team', type: 'sent', time: '10:20pm' },
-      { text: "Jenny: That's pretty common", type: 'received', time: '10:21pm' }
+      { text: "Jenny: That's pretty common", type: 'received', time: '10:21pm' },
+      { text: "Hello jeni ", type: 'received', time: '12:35pm' }
     ]
   },
   {

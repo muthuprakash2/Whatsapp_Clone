@@ -1,5 +1,5 @@
-import React from 'react'
-import './chatlist.css'
+import React from "react";
+import "./chatlist.css";
 
 function ChatItem({
   name,
@@ -20,8 +20,10 @@ function ChatItem({
         <div className={`chat-avatar ${isGroup ? "group-avatar" : ""}`}>
           {avatar ? (
             <img src={avatar} alt={name} />
+          ) : isGroup ? (
+            "👥"
           ) : (
-            isGroup ? '👥' : name.charAt(0).toUpperCase()
+            name.charAt(0).toUpperCase()
           )}
         </div>
       </div>
@@ -35,13 +37,11 @@ function ChatItem({
         <div className="chat-bottom">
           <span className="chat-msg">{lastMessage}</span>
 
-          {unread > 0 && (
-            <span className="chat-unread">{unread}</span>
-          )}
+          {unread > 0 && <span className="chat-unread">{unread}</span>}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ChatItem
+export default ChatItem;
