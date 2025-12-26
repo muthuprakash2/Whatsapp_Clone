@@ -9,6 +9,7 @@ function ChatList({ chats, activeChat, onSelectChat}) {
           <ChatItem
             key={chat.id}
             {...chat}
+            avatar={chat.avatar}  
             active={activeChat?.id === chat.id}
             onClick={() => onSelectChat(chat)}
           />
