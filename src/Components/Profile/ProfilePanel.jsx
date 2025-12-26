@@ -1,6 +1,6 @@
 import './ProfilePanel.css';
 
-function ProfilePanel( {onLogout} ) {
+function ProfilePanel({ data, onLogout }) {
   return (
     <div className="profile-panel">
       <div className="profile-header">
@@ -10,14 +10,16 @@ function ProfilePanel( {onLogout} ) {
 
       <div className="profile-card">
         <div className="profile-menu-btn">⁝</div>
-        
+
         <div className="profile-avatar-large">
-          <img src="https://i.pravatar.cc/150?img=1" alt="Profile" />
+          <img src={data.avatar} alt="Profile" />
         </div>
 
-        <h3 className="profile-name">Catherine Richardson</h3>
+        <h3 className="profile-name">
+          {data.firstName} {data.lastName}
+        </h3>
 
-        <button className="logout-btn" onClick={onLogout} >
+        <button className="logout-btn" onClick={onLogout}>
           <span>🚪</span> Logout
         </button>
       </div>
@@ -34,7 +36,7 @@ function ProfilePanel( {onLogout} ) {
         <div className="profile-info-item">
           <div className="info-content">
             <div className="info-label">Birthday</div>
-            <div className="info-value">26/02/2005</div>
+            <div className="info-value">{data.birthDate}</div>
           </div>
           <div className="info-icon">📅</div>
         </div>
@@ -42,7 +44,7 @@ function ProfilePanel( {onLogout} ) {
         <div className="profile-info-item">
           <div className="info-content">
             <div className="info-label">Phone</div>
-            <div className="info-value">+91 9876543210</div>
+            <div className="info-value">{data.mobile}</div>
           </div>
           <div className="info-icon">📞</div>
         </div>
@@ -50,7 +52,7 @@ function ProfilePanel( {onLogout} ) {
         <div className="profile-info-item">
           <div className="info-content">
             <div className="info-label">Email</div>
-            <div className="info-value">sample@gmail.com</div>
+            <div className="info-value">{data.email}</div>
           </div>
           <div className="info-icon">✉️</div>
         </div>
@@ -58,7 +60,7 @@ function ProfilePanel( {onLogout} ) {
         <div className="profile-info-item">
           <div className="info-content">
             <div className="info-label">Website</div>
-            <div className="info-value">www.sample.com</div>
+            <div className="info-value">{data.website}</div>
           </div>
           <div className="info-icon">🌐</div>
         </div>
@@ -66,7 +68,7 @@ function ProfilePanel( {onLogout} ) {
         <div className="profile-info-item">
           <div className="info-content">
             <div className="info-label">Address</div>
-            <div className="info-value">1134 Ridder Park Road, San Fransisco, CA 94851</div>
+            <div className="info-value">{data.address}</div>
           </div>
           <div className="info-icon">📢</div>
         </div>

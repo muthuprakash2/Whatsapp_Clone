@@ -1,60 +1,52 @@
-import { useState } from 'react';
 import './SettingsPanel.css';
 
-function SettingsPanel() {
-  const [formData, setFormData] = useState({
-    firstName: 'Catherine',
-    lastName: 'Richardson',
-    mobile: '+91 9876543210',
-    birthDate: '26/02/2005',
-    email: 'sample@gmail.com',
-    website: 'www.sample.com',
-    address: '1134 Ridder Park Road, San Fransisco, CA 94851'
-  });
+function SettingsPanel({ data, setData, onSave }) {
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setData({
+      ...data,
       [e.target.name]: e.target.value
     });
   };
 
   const handleReset = () => {
-    setFormData({
+    setData({
       firstName: 'Catherine',
       lastName: 'Richardson',
       mobile: '+91 9876543210',
       birthDate: '26/02/2005',
       email: 'sample@gmail.com',
       website: 'www.sample.com',
-      address: '1134 Ridder Park Road, San Fransisco, CA 94851'
+      address: '1134 Ridder Park Road, San Fransisco, CA 94851',
+      avatar: data.avatar
     });
   };
 
   const handleSave = () => {
-    console.log('Saving changes:', formData);
+    onSave();
     alert('Changes saved successfully!');
   };
 
   return (
     <div className="settings-panel">
       <div className="settings-header">
-        <h2>Profile</h2>
+        <h2>Settings</h2>
         <p className="settings-subtitle">Personal Information & Settings</p>
       </div>
 
       <div className="settings-content">
         <div className="settings-section">
           <h3 className="section-title">Account</h3>
-          <p className="section-subtitle">Update personal & contact information</p>
+          <p className="section-subtitle">
+            Update personal & contact information
+          </p>
 
           <div className="form-grid">
             <div className="form-group">
               <label>First Name</label>
               <input
-                type="text"
                 name="firstName"
-                value={formData.firstName}
+                value={data.firstName}
                 onChange={handleChange}
               />
             </div>
@@ -62,9 +54,8 @@ function SettingsPanel() {
             <div className="form-group">
               <label>Last Name</label>
               <input
-                type="text"
                 name="lastName"
-                value={formData.lastName}
+                value={data.lastName}
                 onChange={handleChange}
               />
             </div>
@@ -72,9 +63,8 @@ function SettingsPanel() {
             <div className="form-group">
               <label>Mobile number</label>
               <input
-                type="text"
                 name="mobile"
-                value={formData.mobile}
+                value={data.mobile}
                 onChange={handleChange}
               />
             </div>
@@ -82,9 +72,8 @@ function SettingsPanel() {
             <div className="form-group">
               <label>Birth date</label>
               <input
-                type="text"
                 name="birthDate"
-                value={formData.birthDate}
+                value={data.birthDate}
                 onChange={handleChange}
               />
             </div>
@@ -92,9 +81,8 @@ function SettingsPanel() {
             <div className="form-group">
               <label>Email address</label>
               <input
-                type="email"
                 name="email"
-                value={formData.email}
+                value={data.email}
                 onChange={handleChange}
               />
             </div>
@@ -102,9 +90,8 @@ function SettingsPanel() {
             <div className="form-group">
               <label>Website</label>
               <input
-                type="text"
                 name="website"
-                value={formData.website}
+                value={data.website}
                 onChange={handleChange}
               />
             </div>
@@ -113,9 +100,8 @@ function SettingsPanel() {
           <div className="form-group full-width">
             <label>Address</label>
             <input
-              type="text"
               name="address"
-              value={formData.address}
+              value={data.address}
               onChange={handleChange}
             />
           </div>

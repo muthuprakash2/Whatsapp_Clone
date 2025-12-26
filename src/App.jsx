@@ -1,46 +1,73 @@
-import { useState } from 'react';
-import './App.css';
-import Header from './Components/Header/Header';
-import Tab from './Components/Tabs/Tab';
-import Navigation from './Components/Navigation/Navigation';
-import ChatWindow from './Components/ChatWindow/ChatWindow';
-import ChatList from './Components/ChatLists/ChatList';
-import ProfilePanel from './Components/Profile/ProfilePanel';
-import SettingsPanel from './Components/SettingPanel/SettingsPanel';
-import chatData from './chatData';
-import Register from './Components/Authentication/Register';
-import Login from './Components/Authentication/Login';
+import { useState } from "react";
+import "./App.css";
+
+import Header from "./Components/Header/Header";
+import Tab from "./Components/Tabs/Tab";
+import Navigation from "./Components/Navigation/Navigation";
+import ChatWindow from "./Components/ChatWindow/ChatWindow";
+import ChatList from "./Components/ChatLists/ChatList";
+
+import ProfilePanel from "./Components/Profile/ProfilePanel";
+import SettingsPanel from "./Components/SettingPanel/SettingsPanel";
+
+import chatData from "./chatData";
+import Register from "./Components/Authentication/Register";
+import Login from "./Components/Authentication/Login";
 
 function App() {
   const [activeChat, setActiveChat] = useState(chatData[0]);
-  const [activeView, setActiveView] = useState('chat'); 
+  const [activeView, setActiveView] = useState("chat");
 
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [ register, setRegister] = useState(false)
+  // 🔐 Auth (logged in by default)
+  const [loggedIn, setLoggedIn] = useState(true);
+  const [register, setRegister] = useState(false);
 
-  if (!loggedIn){
-    if(register){
+  // ✅ SAVED (LEFT PANEL)
+  const [savedProfile, setSavedProfile] = useState({
+    firstName: "Catherine",
+    lastName: "Richardson",
+    mobile: "+91 9876543210",
+    birthDate: "26/02/2005",
+    email: "sample@gmail.com",
+    website: "www.sample.com",
+    address: "1134 Ridder Park Road, San Fransisco, CA 94851",
+    avatar: "https://i.pravatar.cc/150?img=1",
+  });
+
+  // ✅ DRAFT (RIGHT PANEL)
+  const [draftProfile, setDraftProfile] = useState(savedProfile);
+
+  // 🔐 Auth screens (only after logout)
+  if (!loggedIn) {
+    if (register) {
       return (
-        <Register 
-        onRegister={() => setLoggedIn(true)}
-        toLogin={() => setRegister(false)}
+        <Register
+          onRegister={() => {
+            setLoggedIn(true);
+            setRegister(false);
+          }}
+          toLogin={() => setRegister(false)}
         />
-      )
+      );
     }
 
-    return(
+    return (
       <Login
-      onLogin={() => setLoggedIn(true)}
-      toRegister={() => setRegister(true)}
+        onLogin={() => {
+          setLoggedIn(true);
+          setRegister(false);
+        }}
+        toRegister={() => setRegister(true)}
       />
-    )
+    );
   }
 
   return (
-    <div className='app-layout'>
+    <div className="app-layout">
       <Navigation activeView={activeView} setActiveView={setActiveView} />
-      
-      {activeView === 'chat' ? (
+
+      {/* CHAT VIEW */}
+      {activeView === "chat" && (
         <>
           <div className="left-panel">
             <Header />
@@ -51,12 +78,28 @@ function App() {
               onSelectChat={setActiveChat}
             />
           </div>
+
           <ChatWindow activeChat={activeChat} />
         </>
-      ) : (
+      )}
+
+      {/* PROFILE / SETTINGS VIEW */}
+      {activeView === "profile" && (
         <>
-          <ProfilePanel onLogout={() => setLoggedIn(false)} />
-          <SettingsPanel />
+          <ProfilePanel
+            data={savedProfile}
+            onLogout={() => {
+              setLoggedIn(false);
+              setRegister(false);
+              setActiveView("chat");
+            }}
+          />
+
+          <SettingsPanel
+            data={draftProfile}
+            setData={setDraftProfile}
+            onSave={() => setSavedProfile(draftProfile)}
+          />
         </>
       )}
     </div>

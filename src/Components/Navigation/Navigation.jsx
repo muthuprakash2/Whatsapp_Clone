@@ -12,16 +12,12 @@ function Navigation({ activeView, setActiveView }) {
           💬
         </button>
         <button className="nav-btn">👥</button>
-        <button className="nav-btn">📞</button>
         <button 
           className={`nav-btn ${activeView === 'profile' ? 'active' : ''}`}
           onClick={() => setActiveView('profile')}
         >
           👤
         </button>
-      </div>
-      <div className="nav-bottom">
-        <button className="nav-btn">⚙️</button>
       </div>
     </div>
   );
