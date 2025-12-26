@@ -1,0 +1,53 @@
+import React, { useState } from 'react'
+import './auth.css'
+
+
+function Register({ onRegister, toLogin}) {
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(name && email && password){
+            onRegister()
+        }
+    }
+
+  return (
+    <div className='auth-page'>
+        <div className="auth-box">
+            <h2>Register</h2>
+            <form action="" onSubmit={handleSubmit}>
+             <input type="text"
+                placeholder='name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required />
+
+             <input type="email"
+                placeholder='Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
+
+                <input type="password"
+                placeholder='Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required />
+
+                <button type='submit'>Register</button>
+            </form>
+
+            <p>Already have an account?
+                <span onClick={toLogin}> Login</span>
+            </p>
+        </div>
+      
+    </div>
+  )
+}
+
+export default Register

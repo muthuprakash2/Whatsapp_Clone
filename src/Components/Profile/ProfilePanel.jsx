@@ -1,6 +1,6 @@
 import './ProfilePanel.css';
 
-function ProfilePanel() {
+function ProfilePanel( {onLogout} ) {
   return (
     <div className="profile-panel">
       <div className="profile-header">
@@ -17,7 +17,7 @@ function ProfilePanel() {
 
         <h3 className="profile-name">Catherine Richardson</h3>
 
-        <button className="logout-btn">
+        <button className="logout-btn" onClick={onLogout} >
           <span>🚪</span> Logout
         </button>
       </div>
@@ -61,6 +61,14 @@ function ProfilePanel() {
             <div className="info-value">www.sample.com</div>
           </div>
           <div className="info-icon">🌐</div>
+        </div>
+
+        <div className="profile-info-item">
+          <div className="info-content">
+            <div className="info-label">Address</div>
+            <div className="info-value">1134 Ridder Park Road, San Fransisco, CA 94851</div>
+          </div>
+          <div className="info-icon">📢</div>
         </div>
       </div>
     </div>

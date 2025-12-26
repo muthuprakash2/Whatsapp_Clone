@@ -8,10 +8,33 @@ import ChatList from './Components/ChatLists/ChatList';
 import ProfilePanel from './Components/Profile/ProfilePanel';
 import SettingsPanel from './Components/SettingPanel/SettingsPanel';
 import chatData from './chatData';
+import Register from './Components/Authentication/Register';
+import Login from './Components/Authentication/Login';
 
 function App() {
   const [activeChat, setActiveChat] = useState(chatData[0]);
-  const [activeView, setActiveView] = useState('chat'); // 'chat' or 'profile'
+  const [activeView, setActiveView] = useState('chat'); 
+
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [ register, setRegister] = useState(false)
+
+  if (!loggedIn){
+    if(register){
+      return (
+        <Register 
+        onRegister={() => setLoggedIn(true)}
+        toLogin={() => setRegister(false)}
+        />
+      )
+    }
+
+    return(
+      <Login
+      onLogin={() => setLoggedIn(true)}
+      toRegister={() => setRegister(true)}
+      />
+    )
+  }
 
   return (
     <div className='app-layout'>
@@ -32,7 +55,7 @@ function App() {
         </>
       ) : (
         <>
-          <ProfilePanel />
+          <ProfilePanel onLogout={() => setLoggedIn(false)} />
           <SettingsPanel />
         </>
       )}
