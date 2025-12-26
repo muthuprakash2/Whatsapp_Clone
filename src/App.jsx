@@ -1,15 +1,12 @@
 import { useState } from "react";
 import "./App.css";
-
 import Header from "./Components/Header/Header";
 import Tab from "./Components/Tabs/Tab";
 import Navigation from "./Components/Navigation/Navigation";
 import ChatWindow from "./Components/ChatWindow/ChatWindow";
 import ChatList from "./Components/ChatLists/ChatList";
-
 import ProfilePanel from "./Components/Profile/ProfilePanel";
 import SettingsPanel from "./Components/SettingPanel/SettingsPanel";
-
 import chatData from "./chatData";
 import Register from "./Components/Authentication/Register";
 import Login from "./Components/Authentication/Login";
@@ -18,11 +15,10 @@ function App() {
   const [activeChat, setActiveChat] = useState(chatData[0]);
   const [activeView, setActiveView] = useState("chat");
 
-  // 🔐 Auth (logged in by default)
   const [loggedIn, setLoggedIn] = useState(true);
   const [register, setRegister] = useState(false);
 
-  // ✅ SAVED (LEFT PANEL)
+
   const [savedProfile, setSavedProfile] = useState({
     firstName: "Catherine",
     lastName: "Richardson",
@@ -34,10 +30,8 @@ function App() {
     avatar: "https://i.pravatar.cc/150?img=1",
   });
 
-  // ✅ DRAFT (RIGHT PANEL)
   const [draftProfile, setDraftProfile] = useState(savedProfile);
 
-  // 🔐 Auth screens (only after logout)
   if (!loggedIn) {
     if (register) {
       return (
@@ -66,7 +60,6 @@ function App() {
     <div className="app-layout">
       <Navigation activeView={activeView} setActiveView={setActiveView} />
 
-      {/* CHAT VIEW */}
       {activeView === "chat" && (
         <>
           <div className="left-panel">
@@ -83,7 +76,6 @@ function App() {
         </>
       )}
 
-      {/* PROFILE / SETTINGS VIEW */}
       {activeView === "profile" && (
         <>
           <ProfilePanel
