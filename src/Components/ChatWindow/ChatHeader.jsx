@@ -13,7 +13,7 @@ function ChatHeader({ activeChat }) {
             </div>
 
             <div>
-                <h3>{activeChat?.name || 'Select a Chat'}</h3>
+                <h3>{activeChat?.name}</h3>
                 <span className="status">Online</span>
             </div>
         </div>
