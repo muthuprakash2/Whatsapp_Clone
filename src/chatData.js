@@ -1,7 +1,7 @@
 const chatData = [
   {
     id: 1,
-    name: 'Catherine Richardson',
+    name: 'Tommy Thomas',
     lastMessage: "I'm sorry, I didn't catch that, Could you ple...",
     time: 'Just now',
     unread: 0,
