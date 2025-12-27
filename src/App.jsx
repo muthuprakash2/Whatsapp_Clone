@@ -133,7 +133,7 @@ function App() {
           <Login onLogin={handleLogin} />
         } 
       />
-      <Route 
+      <Route
         path="/register" 
         element={
           loggedIn ? <Navigate to="/chats" replace /> : 

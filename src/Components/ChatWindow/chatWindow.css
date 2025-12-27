@@ -193,29 +193,7 @@
     background-color: #9ca3af;
     border-radius: 50%;
     display: inline-block;
-    /* animation: typing-bounce 1.4s infinite ease-in-out; */
 }
-
-/* .typing-indicator span:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.typing-indicator span:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.typing-indicator span:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes typing-bounce {
-    0%, 60%, 100% {
-        transform: translateY(0);
-    }
-    30% {
-        transform: translateY(-10px);
-    }
-} */
 
 .msg-meta{
     display: flex;

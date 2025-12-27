@@ -1,5 +1,6 @@
 import React from 'react'
 import './tab.css'
+import SearchIcon from '@mui/icons-material/Search';
 
 function Tab() {
   return (
@@ -12,7 +13,9 @@ function Tab() {
 
         <div className="search-tab">
           <input type="text" placeholder='Search Chats'/>
-          <span>🔍</span>
+          <span>
+            <SearchIcon />
+          </span>
         </div>
       </div>
   )

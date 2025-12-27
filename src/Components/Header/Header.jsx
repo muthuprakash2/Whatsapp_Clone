@@ -1,4 +1,6 @@
 import './header.css'
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export default function Header() {
   return (
@@ -6,8 +8,12 @@ export default function Header() {
       <h2 className='left-header-title'>Chats</h2>
 
       <div className="left-header-icons">
-        <span>🔔</span>
-        <span>⁝</span>
+        <span>
+          <NotificationsIcon />
+        </span>
+        <span>
+          <MoreVertIcon />
+        </span>
       </div>
     </div>
   )

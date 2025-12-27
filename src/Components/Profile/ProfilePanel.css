@@ -128,3 +128,8 @@
   opacity: 0.4;
   margin-left: 12px;
 }
+
+.info-icon svg{
+  font-size: 28px;
+  color: purple;
+}

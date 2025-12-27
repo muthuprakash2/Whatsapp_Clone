@@ -23,10 +23,10 @@
     outline: none;
 }
 
-.search-tab span{
+.search-tab span svg{
     position: absolute;
     right: 10px;
     top: 50%;
-    transform: translateY(-55%);
+    transform: translateY(-50%);
     opacity: 0.6;
 }

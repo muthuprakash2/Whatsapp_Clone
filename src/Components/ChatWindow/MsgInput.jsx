@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import MicIcon from '@mui/icons-material/Mic';
 
 function MsgInput({ onSend }) {
   const [message, setMessage] = useState("")
@@ -20,9 +22,12 @@ function MsgInput({ onSend }) {
   return (
     <div className='msg-input'>
       <div className="left-icons">
-        <button className="emoji-btn">☺️</button>
-        <button className="plus-btn">➕</button>
-        <button className="mic-btn">🎤</button>
+        <button className="emoji-btn">
+          <EmojiEmotionsIcon />
+        </button>
+        <button className="mic-btn">
+          <MicIcon />
+        </button>
       </div>
 
       <input 
