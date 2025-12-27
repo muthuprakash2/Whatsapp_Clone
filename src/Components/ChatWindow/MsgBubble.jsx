@@ -1,4 +1,6 @@
 import React from 'react'
+import GroupIcon from '@mui/icons-material/Group'
+
 
 function MsgBubble({ text, type, time, avatar, status, isGroup }) {
   
@@ -24,7 +26,9 @@ function MsgBubble({ text, type, time, avatar, status, isGroup }) {
           {avatar ? (
             <img src={avatar} alt="avatar" />
           ) : isGroup ? (
-            <span style={{ fontSize: '18px' }}>👥</span>
+            <span style={{ fontSize: '18px', display:"flex", justifyContent:"center", alignItems: "center", margin:"4px" }}>
+              <GroupIcon />
+            </span>
           ) : (
             <span style={{ fontSize: '18px', color: '#fff' }}>?</span>
           )}

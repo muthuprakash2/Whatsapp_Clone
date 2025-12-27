@@ -65,11 +65,6 @@
     font-style: italic;
 }
 
-.status.typing::before{
-    content: '';
-    margin-right: 0;
-}
-
 .chat-header-icons{
     display: flex;
     align-items: center;
@@ -134,6 +129,7 @@
     flex-shrink: 0;
     overflow: hidden;
     align-self: flex-end;
+    margin-left: 6px;
 }
 
 .msg-avatar img{
@@ -141,6 +137,7 @@
     height: 100%;
     object-fit: cover;
 }
+
 
 .msg-avatar-sent{
     background-color: #6c63ff;
