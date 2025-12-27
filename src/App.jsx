@@ -33,29 +33,29 @@ function App() {
   const [draftProfile, setDraftProfile] = useState(initialProfile);
 
   const getCurrentTime = () => {
-    return new Date().toLocaleTimeString('en-US', { 
-      hour: 'numeric', 
-      minute: '2-digit', 
-      hour12: true 
+    return new Date().toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
     });
   };
 
   const updateChatMessages = (chatId, updateFn) => {
-    setChats(prev => prev.map(chat => 
-      chat.id === chatId ? updateFn(chat) : chat
-    ));
-    
+    setChats((prev) =>
+      prev.map((chat) => (chat.id === chatId ? updateFn(chat) : chat))
+    );
+
     if (activeChat?.id === chatId) {
-      setActiveChat(prev => updateFn(prev));
+      setActiveChat((prev) => updateFn(prev));
     }
   };
 
   const updateMessageStatus = (chatId, messageId, status) => {
-    updateChatMessages(chatId, chat => ({
+    updateChatMessages(chatId, (chat) => ({
       ...chat,
-      messages: chat.messages.map(msg =>
+      messages: chat.messages.map((msg) =>
         msg.id === messageId ? { ...msg, status } : msg
-      )
+      ),
     }));
   };
 
@@ -67,25 +67,27 @@ function App() {
       type: "sent",
       time: getCurrentTime(),
       status: "sent",
-      id: Date.now()
+      id: Date.now(),
     };
 
     const preview = text.length > 40 ? text.substring(0, 40) + "..." : text;
 
-    setChats(prev => prev.map(chat => 
-      chat.id === activeChat.id 
-        ? {
-            ...chat,
-            messages: [...chat.messages, newMessage],
-            lastMessage: preview,
-            time: "Just now"
-          }
-        : chat
-    ));
+    setChats((prev) =>
+      prev.map((chat) =>
+        chat.id === activeChat.id
+          ? {
+              ...chat,
+              messages: [...chat.messages, newMessage],
+              lastMessage: preview,
+              time: "Just now",
+            }
+          : chat
+      )
+    );
 
-    setActiveChat(prev => ({
+    setActiveChat((prev) => ({
       ...prev,
-      messages: [...prev.messages, newMessage]
+      messages: [...prev.messages, newMessage],
     }));
 
     setTimeout(() => {
@@ -99,108 +101,115 @@ function App() {
 
   const handleSelectChat = (chat) => {
     setActiveChat(chat);
-    navigate('/chats');
-    
+    navigate("/chats");
+
     if (chat.unread > 0) {
-      setChats(prev => prev.map(c =>
-        c.id === chat.id ? { ...c, unread: 0 } : c
-      ));
+      setChats((prev) =>
+        prev.map((c) => (c.id === chat.id ? { ...c, unread: 0 } : c))
+      );
     }
   };
 
   const handleLogin = () => {
     setLoggedIn(true);
-    navigate('/chats');
+    navigate("/chats");
   };
 
   const handleRegister = () => {
     setLoggedIn(true);
-    navigate('/chats');
+    navigate("/chats");
   };
 
   const handleLogout = () => {
     setLoggedIn(false);
     setActiveChat(null);
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
     <Routes>
-      <Route 
-        path="/login" 
+      <Route
+        path="/login"
         element={
-          loggedIn ? <Navigate to="/chats" replace /> : 
-          <Login onLogin={handleLogin} />
-        } 
+          loggedIn ? (
+            <Navigate to="/chats" />
+          ) : (
+            <Login onLogin={handleLogin} />
+          )
+        }
       />
       <Route
-        path="/register" 
+        path="/register"
         element={
-          loggedIn ? <Navigate to="/chats" replace /> : 
-          <Register onRegister={handleRegister} />
-        } 
+          loggedIn ? (
+            <Navigate to="/chats" />
+          ) : (
+            <Register onRegister={handleRegister} />
+          )
+        }
       />
 
-      <Route 
-        path="/chats" 
+      <Route
+        path="/chats"
         element={
-          loggedIn ? 
-          <div className="app-layout">
-            <Navigation />
-            <div className="left-panel">
-              <Header />
-              <Tab />
-              <ChatList
-                chats={chats}
-                activeChat={activeChat}
-                onSelectChat={handleSelectChat}
+          loggedIn ? (
+            <div className="app-layout">
+              <Navigation />
+              <div className="left-panel">
+                <Header />
+                <Tab />
+                <ChatList
+                  chats={chats}
+                  activeChat={activeChat}
+                  onSelectChat={handleSelectChat}
+                />
+              </div>
+              {activeChat ? (
+                <ChatWindow
+                  activeChat={activeChat}
+                  onSend={sendMsg}
+                  userAvatar={savedProfile.avatar}
+                />
+              ) : (
+                <div
+                  className="chat-window"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#6b7280",
+                  }}
+                >
+                  <p>Select a chat to start messaging</p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      <Route
+        path="/profile"
+        element={
+          loggedIn ? (
+            <div className="app-layout">
+              <Navigation />
+              <ProfilePanel data={savedProfile} onLogout={handleLogout} />
+              <SettingsPanel
+                data={draftProfile}
+                setData={setDraftProfile}
+                onSave={() => setSavedProfile(draftProfile)}
               />
             </div>
-            {activeChat ? (
-  <ChatWindow 
-    activeChat={activeChat} 
-    onSend={sendMsg}
-    userAvatar={savedProfile.avatar}
-  />
-) : (
-  <div className="chat-window" style={{ 
-    display: 'flex', 
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    color: '#6b7280' 
-  }}>
-    <p>Select a chat to start messaging</p>
-  </div>
-)}
-          </div> : 
-          <Navigate to="/login" replace />
-        } 
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
       />
 
-      <Route 
-        path="/profile" 
-        element={
-          loggedIn ? 
-          <div className="app-layout">
-            <Navigation />
-            <ProfilePanel
-              data={savedProfile}
-              onLogout={handleLogout}
-            />
-            <SettingsPanel
-              data={draftProfile}
-              setData={setDraftProfile}
-              onSave={() => setSavedProfile(draftProfile)}
-            />
-          </div> : 
-          <Navigate to="/login" replace />
-        } 
-      />
-
-      <Route 
-        path="/" 
-        element={<Navigate to="/chats" replace />} 
-      />
+      <Route path="/" element={<Navigate to="/chats" replace />} />
     </Routes>
   );
 }
