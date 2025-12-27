@@ -1,15 +1,15 @@
 const chatData = [
   {
     id: 1,
-    name: 'Tommy Thomas',
+    name: 'Catherine Richardson',
     lastMessage: "I'm sorry, I didn't catch that, Could you ple...",
     time: 'Just now',
     unread: 0,
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=1',
     messages: [
-      { text: 'Hi Catherine 👋', type: 'sent', time: '9:12am' },
-      { text: "I'm sorry, I didn't catch that.", type: 'received', time: '9:12am' }
+      { id: 1, text: 'Hi Catherine 👋', type: 'sent', time: '9:12am', status: 'read' },
+      { id: 2, text: "I'm sorry, I didn't catch that.", type: 'received', time: '9:12am' }
     ]
   },
   {
@@ -21,9 +21,8 @@ const chatData = [
     isGroup: true,
     avatar: null,
     messages: [
-      { text: 'Hello Team', type: 'sent', time: '10:20pm' },
-      { text: "Jenny: That's pretty common", type: 'received', time: '10:21pm' },
-      { text: "Hello jeni ", type: 'received', time: '12:35pm' }
+      { id: 1, text: 'Hello Team', type: 'sent', time: '10:20pm', status: 'read' },
+      { id: 2, text: "Jenny: That's pretty common", type: 'received', time: '10:21pm' }
     ]
   },
   {
@@ -35,7 +34,7 @@ const chatData = [
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=5',
     messages: [
-      { text: "You're Kidding! I drive a motorcycle as well!", type: 'received', time: '09:36am' }
+      { id: 1, text: "You're Kidding! I drive a motorcycle as well!", type: 'received', time: '09:36am' }
     ]
   },
   {
@@ -47,7 +46,7 @@ const chatData = [
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=12',
     messages: [
-      { text: '📷 Photo', type: 'received', time: 'Yesterday' }
+      { id: 1, text: '📷 Photo', type: 'received', time: 'Yesterday' }
     ]
   },
   {
@@ -59,7 +58,7 @@ const chatData = [
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=20',
     messages: [
-      { text: "I'm working hard in Maths, Physics and Chemistry", type: 'received', time: '31/05/20' }
+      { id: 1, text: "I'm working hard in Maths, Physics and Chemistry", type: 'received', time: '31/05/20' }
     ]
   },
   {
@@ -71,7 +70,7 @@ const chatData = [
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=25',
     messages: [
-      { text: '📄 project_guidelines.docs', type: 'received', time: '24/04/20' }
+      { id: 1, text: '📄 project_guidelines.docs', type: 'received', time: '24/04/20' }
     ]
   },
   {
@@ -83,7 +82,7 @@ const chatData = [
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=33',
     messages: [
-      { text: 'Hello, How are you?', type: 'received', time: '10:45 AM' }
+      { id: 1, text: 'Hello, How are you?', type: 'received', time: '10:45 AM' }
     ]
   },
   {
@@ -95,7 +94,7 @@ const chatData = [
     isGroup: false,
     avatar: 'https://i.pravatar.cc/150?img=60',
     messages: [
-      { text: 'Hello, How are you?', type: 'received', time: '02:45 PM' }
+      { id: 1, text: 'Hello, How are you?', type: 'received', time: '02:45 PM' }
     ]
   }
 ]

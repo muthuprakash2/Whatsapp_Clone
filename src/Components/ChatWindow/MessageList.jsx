@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import MsgBubble from "./MsgBubble";
 
-function MessageList({ messages = [], activeChat }) {
+function MessageList({ messages = [], activeChat, userAvatar }) {
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="msg-list">
       <div className="date-divider">
@@ -10,13 +16,17 @@ function MessageList({ messages = [], activeChat }) {
 
       {messages.map((msg, index) => (
         <MsgBubble
-          key={index}
+          key={msg.id || index}
           text={msg.text}
           type={msg.type}
           time={msg.time || "9:21am"}
-          avatar={msg.type === "received" ? activeChat?.avatar : null}
+          avatar={msg.type === "received" ? activeChat?.avatar : userAvatar}
+          status={msg.status}
+          isGroup={activeChat?.isGroup}
         />
       ))}
+
+      <div ref={messagesEndRef} />
     </div>
   );
 }

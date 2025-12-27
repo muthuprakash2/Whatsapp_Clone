@@ -1,26 +1,23 @@
+import { Link, useLocation } from 'react-router-dom';
 import './navigation.css';
 
-function Navigation({ activeView, setActiveView }) {
+function Navigation() {
+  const location = useLocation();
+
   return (
     <div className='navigation'>
       <div className="nav-logo">💬</div>
       <div className="nav-items">
-        <button 
-          className={`nav-btn ${activeView === 'chat' ? 'active' : ''}`}
-          onClick={() => setActiveView('chat')}
-        >
+        <Link to="/chats" className={`nav-btn ${location.pathname === '/chats' ? 'active' : ''}`}>
           💬
-        </button>
+        </Link>
         <button className="nav-btn">👥</button>
-        <button 
-          className={`nav-btn ${activeView === 'profile' ? 'active' : ''}`}
-          onClick={() => setActiveView('profile')}
-        >
+        <Link to="/profile" className={`nav-btn ${location.pathname === '/profile' ? 'active' : ''}`}>
           👤
-        </button>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Navigation;
+export default Navigation

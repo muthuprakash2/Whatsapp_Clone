@@ -34,8 +34,12 @@
     background: none;
     border-radius: 10px;
     border: none;
-    font-size: 22px;
+    font-size: 30px;
     cursor: pointer;
+}
+
+.nav-btn svg{
+    font-size: 35px;
 }
 
 .nav-btn.active{

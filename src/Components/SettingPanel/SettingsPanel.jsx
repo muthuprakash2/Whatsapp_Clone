@@ -1,7 +1,17 @@
 import './SettingsPanel.css';
 
-function SettingsPanel({ data, setData, onSave }) {
 
+function SettingsPanel({ data, setData, onSave }) {
+    
+    const defaultData = {
+      firstName: 'Catherine',
+      lastName: 'Richardson',
+      mobile: '+91 9876543210',
+      birthDate: '26/02/2005',
+      email: 'sample@gmail.com',
+      website: 'www.sample.com',
+      address: '1134 Ridder Park Road, San Fransisco, CA 94851'
+    };
   const handleChange = (e) => {
     setData({
       ...data,
@@ -10,16 +20,7 @@ function SettingsPanel({ data, setData, onSave }) {
   };
 
   const handleReset = () => {
-    setData({
-      firstName: 'Catherine',
-      lastName: 'Richardson',
-      mobile: '+91 9876543210',
-      birthDate: '26/02/2005',
-      email: 'sample@gmail.com',
-      website: 'www.sample.com',
-      address: '1134 Ridder Park Road, San Fransisco, CA 94851',
-      avatar: data.avatar
-    });
+    setData({ ...defaultData, avatar: data.avatar });
   };
 
   const handleSave = () => {

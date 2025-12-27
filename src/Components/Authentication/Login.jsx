@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './auth.css'
 
-function Login({ onLogin, toRegister}) {
-
+function Login({ onLogin }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
 
@@ -34,10 +34,9 @@ function Login({ onLogin, toRegister}) {
             </form>
 
             <p>Don't have a account?
-                <span onClick={toRegister}> Sign up</span>
+                <Link to="/register"><span> Sign up</span></Link>
             </p>
         </div>
-      
     </div>
   )
 }

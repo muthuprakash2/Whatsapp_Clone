@@ -1,5 +1,7 @@
 import React from "react";
 import "./chatlist.css";
+import GroupIcon from '@mui/icons-material/Group'
+
 
 function ChatItem({
   name,
@@ -21,7 +23,7 @@ function ChatItem({
           {avatar ? (
             <img src={avatar} alt={name} />
           ) : isGroup ? (
-            "👥"
+              <GroupIcon />
           ) : (
             name.charAt(0).toUpperCase()
           )}
