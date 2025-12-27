@@ -1,12 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import MsgBubble from "./MsgBubble";
 
 function MessageList({ messages = [], activeChat, userAvatar }) {
-  const messagesEndRef = useRef(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
 
   return (
     <div className="msg-list">
@@ -25,8 +20,7 @@ function MessageList({ messages = [], activeChat, userAvatar }) {
           isGroup={activeChat?.isGroup}
         />
       ))}
-
-      <div ref={messagesEndRef} />
+      
     </div>
   );
 }
