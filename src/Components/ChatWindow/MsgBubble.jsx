@@ -7,13 +7,13 @@ function MsgBubble({ text, type, time, avatar, status, isGroup }) {
     
     switch(status) {
       case "sent":
-        return "✓";
+        return ".";
       case "delivered":
-        return "✓✓";
+        return "..";
       case "read":
         return <span style={{ color: '#10b981' }}>✓✓</span>;
       default:
-        return "○";
+        return "..";
     }
   }
 
